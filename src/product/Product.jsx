@@ -34,8 +34,8 @@ function Product({ id, name, image, description, cost, category, quantity }) {
   return (
     <>
       <section className="flex flex-col items-center gap-3.5">
-        <div className="products flex flex-row flex-wrap justify-center gap-3.5">
-          <div className="flex flex-col justify-between w-[400px] h-[460px] max-md:max-w-[95%] cursor-pointer bg-white border border-gray-100 shadow-sm">
+        <div className="products flex flex-row flex-wrap justify-center items-center gap-3.5 mx-auto">
+          <div className="flex flex-col justify-between w-[400px] h-[460px] max-md:w-[100%] cursor-pointer bg-white border border-gray-100 shadow-sm">
             <a className="">
               <img
                 className="p-8 rounded-t-lg object-contain h-[300px] w-[100%]"
