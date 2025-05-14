@@ -1,9 +1,16 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function Header() {
   const items = useSelector((state) => state.cart.items); // accedemos al estado del carrito
 
   const itemsCart = items.length;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -51,6 +58,7 @@ function Header() {
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded="false"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -65,15 +73,22 @@ function Header() {
             </button>
           </div>
           <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+              isMenuOpen ? "flex" : "hidden"
+            }`}
             id="navbar-sticky"
           >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+            <ul className="w-full flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
               <li>
                 <Link
                   to="/home"
-                  className="block py-2 px-3 text-white bg-green-700 rounded-sm md:bg-transparent md:text-green-700 md:p-0 "
+                  className={`block py-2 px-3 rounded-sm md:p-0 ${
+                    isActive("/home")
+                      ? "text-white bg-green-700 md:bg-transparent md:text-green-700"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700"
+                  }`}
                   aria-current="page"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   Inicio
                 </Link>
@@ -81,7 +96,12 @@ function Header() {
               <li>
                 <Link
                   to="/productos"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0"
+                  className={`block py-2 px-3 rounded-sm md:p-0 ${
+                    isActive("/productos")
+                      ? "text-white bg-green-700 md:bg-transparent md:text-green-700"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700"
+                  }`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   Productos
                 </Link>
@@ -89,7 +109,12 @@ function Header() {
               <li>
                 <Link
                   to="/home"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0"
+                  className={`block py-2 px-3 rounded-sm md:p-0 ${
+                    isActive("/servicios")
+                      ? "text-white bg-green-700 md:bg-transparent md:text-green-700"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700"
+                  }`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   Servicios
                 </Link>
@@ -97,7 +122,12 @@ function Header() {
               <li>
                 <Link
                   to="/home"
-                  className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0"
+                  className={`block py-2 px-3 rounded-sm md:p-0 ${
+                    isActive("/contacto")
+                      ? "text-white bg-green-700 md:bg-transparent md:text-green-700"
+                      : "text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700"
+                  }`}
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                   Contacto
                 </Link>
