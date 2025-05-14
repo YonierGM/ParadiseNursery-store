@@ -278,7 +278,7 @@ function ProductList() {
 
   return (
     <>
-      <section className="p-2.5 flex flex-col items-center gap-3.5 mt-24">
+      <section className="max-md:max-w-[95%] flex flex-col items-center gap-3.5 mt-24">
         {plantsArray.map((item, categoryIndex) => (
           <div key={categoryIndex}>
             <div className="category flex flex-col gap-1 mb-3.5 items-center">

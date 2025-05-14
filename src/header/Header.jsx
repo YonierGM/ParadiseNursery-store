@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <>
-      <nav className=" bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <nav className=" bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             to="/home"
@@ -18,7 +18,7 @@ function Header() {
               className="h-15"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white max-md:text-base">
+            <span className="self-center text-2xl font-bold whitespace-nowrap max-md:text-base text-black">
               Paradise Nursery
             </span>
           </Link>
@@ -26,7 +26,7 @@ function Header() {
             <div className="cart text-white">
               <Link to="carrito">
                 <svg
-                  className="w-10 h-9 text-gray-800 dark:text-white"
+                  className="w-10 h-9 text-gray-800"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   width="34"
