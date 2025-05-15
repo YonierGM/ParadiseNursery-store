@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 function Header() {
-  const items = useSelector((state) => state.cart.items); // accedemos al estado del carrito
+  const items = useSelector((state) => state.cart.items); // accedemos al estado del carrito.
 
   const itemsCart = items.length;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
