@@ -47,7 +47,13 @@ function Header() {
                     d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                   />
                 </svg>
-                <span className="absolute top-5 ml-5.5 bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full">
+                <span
+                  className={
+                    itemsCart > 0
+                      ? "absolute top-5 ml-5.5 bg-green-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full"
+                      : "absolute top-5 ml-5.5 bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full"
+                  }
+                >
                   {itemsCart}
                 </span>
               </Link>
